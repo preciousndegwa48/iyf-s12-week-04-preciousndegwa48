@@ -434,3 +434,42 @@ const myProfile = {
     }
 };
 console.log(myProfile.greet());
+
+const json = '{"name":"Precious","grades":{"math":88,"english":92}}';
+
+const student = JSON.parse(json);
+console.log(student.grades.math);
+
+const backToText = JSON.stringify(student, null, 2);
+console.log(typeof backToText);
+
+const postsJson = '[{"id":1,"title":"Welcome","likes":12,"published":true},{"id":2,"title":"Draft ideas","likes":0,"published":false},{"id":3,"title":"Week 4 recap","likes":30,"published":true}]';
+
+let posts;
+try {
+    posts = JSON.parse(postsJson);
+} catch (error) {
+    console.log("Invalid JSON:", error.message);
+    posts = [];
+}
+
+const publishedPosts = posts.filter(post => post.published);
+const sortedByLikes = [...publishedPosts].sort((a, b) => b.likes - a.likes);
+const postStrings = sortedByLikes.map(post => `${post.title} (${post.likes} likes)`);
+const filteredJson = JSON.stringify(sortedByLikes, null, 2);
+
+console.log(publishedPosts);
+console.log(sortedByLikes);
+console.log(postStrings);
+console.log(filteredJson);
+
+const myProfileJson = JSON.stringify({
+    name: "Precious Ndegwa",
+    age: 20,
+    country: "Kenya",
+    birthYear: 2006,
+    favoriteColors: ["pink", "blue", "purple"]
+}, null, 2);
+console.log(myProfileJson);
+
+
