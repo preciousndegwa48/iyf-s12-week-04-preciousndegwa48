@@ -554,3 +554,72 @@ console.log(gradeTracker.generateReportCard("Alice"));
 
 const trackerJson = JSON.stringify(gradeTracker.students, null, 2);
 console.log(trackerJson);
+
+console.log("--- Day 1: FizzBuzz 1-100 ---");
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+
+function reverseWithLoop(str) {
+    let reversed = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+
+console.log(reverseString("hello"));
+console.log(reverseWithLoop("Precious Ndegwa"));
+
+function findLargest(arr) {
+    let largest = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+
+function findLargestReduce(arr) {
+    return arr.reduce((max, current) => current > max ? current : max, arr[0]);
+}
+
+console.log(findLargest([20, 2006, 5, 88, 92, 12]));
+console.log(findLargestReduce([20, 2006, 5, 88, 92, 12]));
+
+function removeDuplicates(arr) {
+    return [...new Set(arr)];
+}
+
+function removeDuplicatesFilter(arr) {
+    return arr.filter((value, index) => arr.indexOf(value) === index);
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+console.log(removeDuplicatesFilter([1, 2, 2, 3, 4, 4, 5]));
+console.log(removeDuplicates(["pink", "blue", "pink", "purple", "blue"]));
+
+function isPalindrome(str) {
+    const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const reversed = cleaned.split("").reverse().join("");
+    return cleaned === reversed;
+}
+
+console.log(isPalindrome("racecar"));
+console.log(isPalindrome("hello"));
+console.log(isPalindrome("A man a plan a canal Panama"));
+console.log(isPalindrome("Precious Ndegwa"));
+console.log(isPalindrome("nurses run"));
