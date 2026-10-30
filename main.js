@@ -278,3 +278,56 @@ console.log(calculate(10, "%", 3));
 console.log(calculate(2, "**", 3));
 console.log(getGrade(85));
 console.log(getDayName(3));
+
+const fruits = ["mango", "strawberry", "watermelon"];
+const myNumbers = [20, 2006, 5, 10, 15];
+const mixed = ["Precious", 20, true, null];
+
+console.log(fruits[0]);
+console.log(fruits.length);
+
+fruits.push("pineapple");
+fruits.unshift("banana");
+console.log(fruits);
+fruits.pop();
+fruits.shift();
+console.log(fruits);
+
+const numbers = [1, 2, 3, 4, 5, 20, 2006];
+
+numbers.forEach(num => console.log(num * 2));
+
+const doubled = numbers.map(num => num * 2);
+console.log(doubled);
+
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers);
+
+const firstEven = numbers.find(num => num % 2 === 0);
+console.log(firstEven);
+
+const sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum);
+
+console.log(numbers.includes(3));
+
+const sampleArray = [2, -3, 5, -10, 12, 20, -1];
+
+const doubleAll = sampleArray.map(num => num * 2);
+console.log("Doubled:", doubleAll);
+
+const noNegatives = sampleArray.filter(num => num >= 0);
+console.log("No negatives:", noNegatives);
+
+const firstGreaterThan10 = sampleArray.find(num => num > 10);
+console.log("First > 10:", firstGreaterThan10);
+
+const product = sampleArray.reduce((total, num) => total * num, 1);
+console.log("Product:", product);
+
+const favColors = ["pink", "blue", "purple"];
+const upperColors = favColors.map(color => color.toUpperCase());
+console.log(upperColors);
+
+const colorsWithP = favColors.filter(color => color.includes("p"));
+console.log(colorsWithP);
