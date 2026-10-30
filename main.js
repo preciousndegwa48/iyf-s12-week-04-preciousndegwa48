@@ -76,3 +76,65 @@ console.log(`I am ${myCurrentAge} years old`);
 console.log(`I am approximately ${ageInDays} days old`);
 console.log(`I am approximately ${ageInHours} hours old`);
 console.log(`I will turn 100 in year ${yearTurn100}`);
+
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const add = function(a, b) {
+    return a + b;
+};
+
+const multiply = (a, b) => a * b;
+
+const divide = (a, b) => {
+    if (b === 0) {
+        return "Cannot divide by zero";
+    }
+    return a / b;
+};
+
+function calculateArea(width, height) {
+    return width * height;
+}
+
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+
+function isEven(number) {
+    return number % 2 === 0;
+}
+
+function getInitials(fullName) {
+    let parts = fullName.split(" ");
+    let initials = parts[0][0] + parts[1][0];
+    return initials.toUpperCase();
+}
+
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+
+function greetDefault(name = "Guest", greeting = "Hello") {
+    return `${greeting}, ${name}!`;
+}
+
+function calculateTip(bill, tipPercent = 15) {
+    return (bill * tipPercent) / 100;
+}
+
+console.log(greet("Precious"));
+console.log(add(10, 5));
+console.log(multiply(4, 6));
+console.log(divide(10, 2));
+console.log(calculateArea(10, 5));
+console.log(celsiusToFahrenheit(25));
+console.log(isEven(20));
+console.log(getInitials("Precious Ndegwa"));
+console.log(reverseString("Precious"));
+console.log(greetDefault());
+console.log(greetDefault("Precious Ndegwa"));
+console.log(greetDefault("Precious Ndegwa", "Hi"));
+console.log(calculateTip(1000));
+console.log(calculateTip(1000, 20));
