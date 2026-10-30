@@ -138,3 +138,143 @@ console.log(greetDefault("Precious Ndegwa"));
 console.log(greetDefault("Precious Ndegwa", "Hi"));
 console.log(calculateTip(1000));
 console.log(calculateTip(1000, 20));
+
+function getGrade(score) {
+    if (score >= 90) {
+        return "A";
+    } else if (score >= 80) {
+        return "B";
+    } else if (score >= 70) {
+        return "C";
+    } else if (score >= 60) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+function getDayName(dayNumber) {
+    switch (dayNumber) {
+        case 0:
+            return "Sunday";
+        case 1:
+            return "Monday";
+        case 2:
+            return "Tuesday";
+        case 3:
+            return "Wednesday";
+        case 4:
+            return "Thursday";
+        case 5:
+            return "Friday";
+        case 6:
+            return "Saturday";
+        default:
+            return "Invalid day";
+    }
+}
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+let loopCount = 0;
+while (loopCount < 5) {
+    console.log(loopCount);
+    loopCount++;
+}
+
+const myColors = ["pink", "blue", "purple"];
+for (const color of myColors) {
+    console.log(color);
+}
+
+console.log("--- Numbers 1-100 ---");
+for (let i = 1; i <= 100; i++) {
+    console.log(i);
+}
+
+console.log("--- Even numbers 1-50 ---");
+for (let i = 1; i <= 50; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+console.log("--- FizzBuzz ---");
+for (let i = 1; i <= 50; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+
+console.log("--- Triangle of stars ---");
+for (let i = 1; i <= 5; i++) {
+    let stars = "";
+    for (let j = 1; j <= i; j++) {
+        stars += "*";
+    }
+    console.log(stars);
+}
+
+function addCalc(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiplyCalc(a, b) {
+    return a * b;
+}
+
+function divideCalc(a, b) {
+    if (b === 0) {
+        return "Error: Cannot divide by zero";
+    }
+    return a / b;
+}
+
+function modulus(a, b) {
+    return a % b;
+}
+
+function power(a, b) {
+    return a ** b;
+}
+
+function calculate(num1, operator, num2) {
+    switch (operator) {
+        case "+":
+            return addCalc(num1, num2);
+        case "-":
+            return subtract(num1, num2);
+        case "*":
+            return multiplyCalc(num1, num2);
+        case "/":
+            return divideCalc(num1, num2);
+        case "%":
+            return modulus(num1, num2);
+        case "**":
+            return power(num1, num2);
+        default:
+            return "Invalid operator";
+    }
+}
+
+console.log(calculate(10, "+", 5));
+console.log(calculate(10, "-", 5));
+console.log(calculate(10, "*", 5));
+console.log(calculate(10, "/", 5));
+console.log(calculate(10, "/", 0));
+console.log(calculate(10, "%", 3));
+console.log(calculate(2, "**", 3));
+console.log(getGrade(85));
+console.log(getDayName(3));
