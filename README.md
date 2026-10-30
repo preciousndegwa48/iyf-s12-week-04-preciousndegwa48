@@ -31,4 +31,4 @@ Learned typeof, template literals, function types, array methods, objects, JSON 
 Fixed inconsistent personal data across tasks by using my real info (age 20, Kenya, pink/blue/purple).
 
 ## Live Demo (if deployed)
-[View Live Demo](https://preciousndegwa48.github.io/week-4-javascript-basics/)
+[View Live Demo](  https://preciousndegwa48.github.io/iyf-s12-week-04-preciousndegwa48/)
