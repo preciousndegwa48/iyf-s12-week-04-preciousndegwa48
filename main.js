@@ -472,4 +472,85 @@ const myProfileJson = JSON.stringify({
 }, null, 2);
 console.log(myProfileJson);
 
+const gradeTracker = {
+    students: [],
+    
+    addStudent(name, grades) {
+        this.students.push({ name, grades });
+    },
+    
+    getStudent(name) {
+        return this.students.find(s => s.name === name) || null;
+    },
+    
+    getStudentAverage(name) {
+        const student = this.getStudent(name);
+        if (!student) return null;
+        const values = Object.values(student.grades);
+        const sum = values.reduce((total, grade) => total + grade, 0);
+        return sum / values.length;
+    },
+    
+    getSubjectAverage(subject) {
+        const subjectGrades = this.students
+            .filter(s => s.grades[subject] !== undefined)
+            .map(s => s.grades[subject]);
+        if (subjectGrades.length === 0) return 0;
+        const sum = subjectGrades.reduce((total, grade) => total + grade, 0);
+        return sum / subjectGrades.length;
+    },
+    
+    getTopStudent() {
+        if (this.students.length === 0) return null;
+        let top = this.students[0];
+        let topAvg = this.getStudentAverage(top.name);
+        for (const student of this.students) {
+            const avg = this.getStudentAverage(student.name);
+            if (avg > topAvg) {
+                top = student;
+                topAvg = avg;
+            }
+        }
+        return top;
+    },
+    
+    getStrugglingStudents() {
+        return this.students.filter(s => this.getStudentAverage(s.name) < 70);
+    },
+    
+    getLetterGrade(score) {
+        if (score >= 90) return "A";
+        if (score >= 80) return "B";
+        if (score >= 70) return "C";
+        if (score >= 60) return "D";
+        return "F";
+    },
+    
+    generateReportCard(name) {
+        const student = this.getStudent(name);
+        if (!student) return `Student ${name} not found`;
+        const avg = this.getStudentAverage(name);
+        const letter = this.getLetterGrade(avg);
+        let report = `--- Report Card: ${student.name} ---\n`;
+        for (const [subject, grade] of Object.entries(student.grades)) {
+            report += `${subject}: ${grade} (${this.getLetterGrade(grade)})\n`;
+        }
+        report += `Average: ${avg.toFixed(2)} - Grade ${letter}`;
+        return report;
+    }
+};
 
+gradeTracker.addStudent("Precious Ndegwa", { math: 88, english: 92, science: 85 });
+gradeTracker.addStudent("Alice", { math: 95, english: 88, science: 92 });
+gradeTracker.addStudent("Bob", { math: 72, english: 85, science: 78 });
+gradeTracker.addStudent("Charlie", { math: 60, english: 65, science: 58 });
+
+console.log(gradeTracker.getStudentAverage("Alice"));
+console.log(gradeTracker.getSubjectAverage("math"));
+console.log(gradeTracker.getTopStudent());
+console.log(gradeTracker.getStrugglingStudents());
+console.log(gradeTracker.generateReportCard("Precious Ndegwa"));
+console.log(gradeTracker.generateReportCard("Alice"));
+
+const trackerJson = JSON.stringify(gradeTracker.students, null, 2);
+console.log(trackerJson);
