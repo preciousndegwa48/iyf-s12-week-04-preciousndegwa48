@@ -331,3 +331,106 @@ console.log(upperColors);
 
 const colorsWithP = favColors.filter(color => color.includes("p"));
 console.log(colorsWithP);
+
+const person = {
+    firstName: "Precious",
+    lastName: "Ndegwa",
+    age: 20,
+    isStudent: true,
+    hobbies: ["reading", "coding", "music"],
+    favoriteColors: ["pink", "blue", "purple"],
+    address: {
+        city: "Nairobi",
+        country: "Kenya"
+    },
+    birthYear: 2006
+};
+
+console.log(person.firstName);
+console.log(person["lastName"]);
+console.log(person.address.city);
+
+person.age = 21;
+person.phone = "0712 345 678";
+person.email = "precious.ndegwa@example.com";
+delete person.isStudent;
+console.log(person);
+
+const calculatorObj = {
+    add: function(a, b) {
+        return a + b;
+    },
+    subtract(a, b) {
+        return a - b;
+    },
+    multiply: (a, b) => a * b,
+    divide(a, b) {
+        if (b === 0) return "Cannot divide by zero";
+        return a / b;
+    }
+};
+
+console.log(calculatorObj.add(5, 3));
+console.log(calculatorObj.subtract(10, 4));
+
+const scores = {
+    math: 95,
+    english: 88,
+    science: 92,
+    javascript: 90
+};
+
+console.log(Object.keys(scores));
+console.log(Object.values(scores));
+console.log(Object.entries(scores));
+
+for (const [subject, score] of Object.entries(scores)) {
+    console.log(`${subject}: ${score}`);
+}
+
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+
+const students = [
+    { name: "Precious Ndegwa", age: 20, grade: 88, major: "Software Engineering" },
+    { name: "Brian Otieno", age: 22, grade: 72, major: "Math" },
+    { name: "Faith Wanjiku", age: 21, grade: 90, major: "Software Engineering" },
+    { name: "Kevin Mwangi", age: 23, grade: 85, major: "Physics" },
+    { name: "Linda Achieng", age: 20, grade: 95, major: "Software Engineering" }
+];
+
+const names = students.map(student => student.name);
+console.log(names);
+
+const highAchievers = students.filter(student => student.grade > 80);
+console.log(highAchievers);
+
+const charlie = students.find(student => student.name.includes("Faith"));
+console.log(charlie);
+
+const avgGrade = students.reduce((total, student) => total + student.grade, 0) / students.length;
+console.log("Average grade:", avgGrade);
+
+const csMajors = students.filter(student => student.major === "Software Engineering");
+console.log(csMajors);
+
+const sortedByGrade = [...students].sort((a, b) => b.grade - a.grade);
+console.log(sortedByGrade);
+
+const hasTopStudent = students.some(student => student.grade > 90);
+console.log(hasTopStudent);
+
+const allPassing = students.every(student => student.grade >= 60);
+console.log(allPassing);
+
+const myProfile = {
+    name: "Precious Ndegwa",
+    age: 20,
+    country: "Kenya",
+    birthYear: 2006,
+    greet() {
+        return `Hi, I am ${this.name} from ${this.country}`;
+    }
+};
+console.log(myProfile.greet());
